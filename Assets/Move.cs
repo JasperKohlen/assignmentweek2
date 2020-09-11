@@ -13,8 +13,12 @@ public class Move : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        rigidbody.MovePosition(transform.position + transform.forward * (Speed * Time.deltaTime));
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 v = transform.forward * Speed;
+            rigidbody.velocity = v;
+        }
     }
 }
